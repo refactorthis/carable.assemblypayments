@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Implementations;
 using PromisePayDotNet.Internals;
 

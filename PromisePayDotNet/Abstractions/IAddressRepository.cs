@@ -1,4 +1,4 @@
-﻿using PromisePayDotNet.DTO;
+﻿using PromisePayDotNet.Dto;
 using System.Threading.Tasks;
 using PromisePayDotNet.Internals;
 namespace PromisePayDotNet.Abstractions

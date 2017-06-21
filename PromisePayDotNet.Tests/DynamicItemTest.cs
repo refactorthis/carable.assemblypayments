@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using PromisePayDotNet.Abstractions;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Enums;
 
 namespace PromisePayDotNet.Tests

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PromisePayDotNet.DTO
+namespace PromisePayDotNet.Dto
 {
     public class Item : AbstractDTO
     {

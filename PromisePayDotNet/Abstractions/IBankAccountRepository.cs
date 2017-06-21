@@ -1,4 +1,4 @@
-﻿using PromisePayDotNet.DTO;
+﻿using PromisePayDotNet.Dto;
 using PromisePayDotNet.Internals;
 using System.Threading.Tasks;
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using PromisePayDotNet.Abstractions;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Enums;
 
 namespace PromisePayDotNet.Tests
@@ -40,9 +40,11 @@ namespace PromisePayDotNet.Tests
                 Cap = "1",
                 Max = "3",
                 Min = "2",
-                To = "buyer"
+                To = ReceiverOfFee.Buyer
             });
             Assert.NotNull(createdFee);
+            Assert.Equal(ReceiverOfFee.Buyer, createdFee.To);
+            Assert.Equal(FeeType.Fixed, createdFee.FeeType);
         }
 
         [Fact]
@@ -60,8 +62,8 @@ namespace PromisePayDotNet.Tests
                 FeeType = (FeeType)1,
                 Cap = "1",
                 Max = "3",
-                Min = "2",
-                To = ""
+                Min = "2"
+                //To = None
             }));
         }
 

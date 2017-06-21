@@ -7,14 +7,25 @@ namespace PromisePayDotNet.Internals
     public class RestRequest
     {
         internal string url;
-
         public RestRequest(string url, HttpMethod method)
+            : this(url, method, null)
+        {
+        }
+
+        public RestRequest(string url, HttpMethod method, object body)
         {
             this.url = url;
             this.Method = method;
+            this.Body = body;
         }
-
+        /// <summary>
+        /// Gets the method.
+        /// </summary>
         public HttpMethod Method { get; }
+        /// <summary>
+        /// Gets the body of the request.
+        /// </summary>
+        public object Body { get; }
 
         internal void AddUrlSegment(string name, string value)
         {

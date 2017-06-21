@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using PromisePayDotNet.Abstractions;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 
 namespace PromisePayDotNet.Tests
 {

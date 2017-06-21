@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PromisePayDotNet.Internals
 {
@@ -23,7 +26,15 @@ namespace PromisePayDotNet.Internals
                 Method = request.Method,
                 RequestUri = rel,
             };
-            req.Headers.Add("Content-Type", "application/json");
+			req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			if (request.Body != null)
+            {
+                req.Content = new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json");
+            }
+            else
+            {
+                req.Headers.Add("Content-Type", "application/json");
+            }
             Authenticator?.Add(req);
 
             var result = await _client.SendAsync(req);

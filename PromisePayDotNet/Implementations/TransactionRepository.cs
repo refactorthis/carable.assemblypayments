@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Abstractions;
 using PromisePayDotNet.Internals;
 using Microsoft.Extensions.Logging;

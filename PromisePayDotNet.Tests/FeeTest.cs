@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Xunit;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Enums;
 using PromisePayDotNet.Exceptions;
 using PromisePayDotNet.Implementations;
@@ -40,7 +40,7 @@ namespace PromisePayDotNet.Tests
                 Cap = "1",
                 Max = "3",
                 Min = "2",
-                To = "buyer"
+                To = ReceiverOfFee.Buyer
             });
             Assert.NotNull(createdFee);
         }

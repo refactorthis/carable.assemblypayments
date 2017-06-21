@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Xunit;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Exceptions;
 using PromisePayDotNet.Implementations;
 using System;

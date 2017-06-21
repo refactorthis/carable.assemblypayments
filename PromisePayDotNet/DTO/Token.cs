@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PromisePayDotNet.Enums;
 
-namespace PromisePayDotNet.DTO
+namespace PromisePayDotNet.Dto
 {
     public class Token //NOTE: Why is this called token?
     {

@@ -3,7 +3,7 @@ using System.Net;
 using Moq;
 using Newtonsoft.Json;
 using Xunit;
-using PromisePayDotNet.DTO;
+using PromisePayDotNet.Dto;
 using PromisePayDotNet.Enums;
 using PromisePayDotNet.Exceptions;
 using PromisePayDotNet.Implementations;
@@ -278,7 +278,9 @@ namespace PromisePayDotNet.Tests
 
             var wireDetails = repo.GetWireDetailsForItem("7c269f52-2236-4aa5-899e-a2e3ecadbc3f");
             Assert.NotNull(wireDetails);
-        }
+            Assert.Equal("Australia", wireDetails.Country);
+            Assert.Equal("National Australia Bank", wireDetails.BankName);
+		}
 
         [Fact]
         public void GetBPayDetailsForItemSuccessfully()

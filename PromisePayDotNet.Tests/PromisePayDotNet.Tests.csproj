@@ -34,4 +34,153 @@
     </Content>
   </ItemGroup>
  
+  <ItemGroup>
+    <Content Update="Fixtures\address_get_by_id.json">
+      <Link>Fixtures\address_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\bank_account_create.json">
+      <Link>Fixtures\bank_account_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\bank_account_delete.json">
+      <Link>Fixtures\bank_account_delete.json</Link>
+    </Content>
+    <Content Update="Fixtures\bank_account_get_by_id.json">
+      <Link>Fixtures\bank_account_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\bank_account_get_users.json">
+      <Link>Fixtures\bank_account_get_users.json</Link>
+    </Content>
+    <Content Update="Fixtures\card_account_create.json">
+      <Link>Fixtures\card_account_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\card_account_delete.json">
+      <Link>Fixtures\card_account_delete.json</Link>
+    </Content>
+    <Content Update="Fixtures\card_account_get_by_id.json">
+      <Link>Fixtures\card_account_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\card_account_get_users.json">
+      <Link>Fixtures\card_account_get_users.json</Link>
+    </Content>
+    <Content Update="Fixtures\companies_create.json">
+      <Link>Fixtures\companies_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\companies_edit.json">
+      <Link>Fixtures\companies_edit.json</Link>
+    </Content>
+    <Content Update="Fixtures\companies_get_by_id.json">
+      <Link>Fixtures\companies_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\companies_list.json">
+      <Link>Fixtures\companies_list.json</Link>
+    </Content>
+    <Content Update="Fixtures\fees_create.json">
+      <Link>Fixtures\fees_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\fees_get_by_id.json">
+      <Link>Fixtures\fees_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\fees_list.json">
+      <Link>Fixtures\fees_list.json</Link>
+    </Content>
+    <Content Update="Fixtures\generate_card_token.json">
+      <Link>Fixtures\generate_card_token.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_create.json">
+      <Link>Fixtures\items_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_delete.json">
+      <Link>Fixtures\items_delete.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_delete_unsuccessful.json">
+      <Link>Fixtures\items_delete_unsuccessful.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_edit.json">
+      <Link>Fixtures\items_edit.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_edit_unsuccessful.json">
+      <Link>Fixtures\items_edit_unsuccessful.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_bpay_details.json">
+      <Link>Fixtures\items_get_bpay_details.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_buyer.json">
+      <Link>Fixtures\items_get_buyer.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_by_id.json">
+      <Link>Fixtures\items_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_seller.json">
+      <Link>Fixtures\items_get_seller.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_status.json">
+      <Link>Fixtures\items_get_status.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_get_wire_details.json">
+      <Link>Fixtures\items_get_wire_details.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_list.json">
+      <Link>Fixtures\items_list.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_list_fees.json">
+      <Link>Fixtures\items_list_fees.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_list_transactions.json">
+      <Link>Fixtures\items_list_transactions.json</Link>
+    </Content>
+    <Content Update="Fixtures\items_not_found.json">
+      <Link>Fixtures\items_not_found.json</Link>
+    </Content>
+    <Content Update="Fixtures\paypal_account_create.json">
+      <Link>Fixtures\paypal_account_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\paypal_account_delete.json">
+      <Link>Fixtures\paypal_account_delete.json</Link>
+    </Content>
+    <Content Update="Fixtures\paypal_account_get_by_id.json">
+      <Link>Fixtures\paypal_account_get_by_id.json</Link>
+    </Content>
+    <Content Update="Fixtures\paypal_account_get_users.json">
+      <Link>Fixtures\paypal_account_get_users.json</Link>
+    </Content>
+    <Content Update="Fixtures\transactions_list.json">
+      <Link>Fixtures\transactions_list.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_bank_accounts.json">
+      <Link>Fixtures\user_bank_accounts.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_bank_accounts_empty.json">
+      <Link>Fixtures\user_bank_accounts_empty.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_card_accounts.json">
+      <Link>Fixtures\user_card_accounts.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_card_accounts_empty.json">
+      <Link>Fixtures\user_card_accounts_empty.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_create.json">
+      <Link>Fixtures\user_create.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_items.json">
+      <Link>Fixtures\user_items.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_missing.json">
+      <Link>Fixtures\user_missing.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_paypal_accounts.json">
+      <Link>Fixtures\user_paypal_accounts.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_paypal_accounts_empty.json">
+      <Link>Fixtures\user_paypal_accounts_empty.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_set_disbursement_account.json">
+      <Link>Fixtures\user_set_disbursement_account.json</Link>
+    </Content>
+    <Content Update="Fixtures\user_update.json">
+      <Link>Fixtures\user_update.json</Link>
+    </Content>
+    <Content Update="Fixtures\users_list.json">
+      <Link>Fixtures\users_list.json</Link>
+    </Content>
+  </ItemGroup>
 </Project>
