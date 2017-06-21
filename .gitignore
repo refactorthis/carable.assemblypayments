@@ -4,6 +4,7 @@
 # User-specific files
 *.suo
 *.user
+*.userprefs
 *.sln.docstates
 
 # Build results
@@ -194,3 +195,5 @@ $RECYCLE.BIN/
 
 # Visual studio files
 .vs
+
+
