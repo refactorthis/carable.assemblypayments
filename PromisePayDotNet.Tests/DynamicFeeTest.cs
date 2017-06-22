@@ -40,10 +40,10 @@ namespace PromisePayDotNet.Tests
                 Cap = "1",
                 Max = "3",
                 Min = "2",
-                To = ReceiverOfFee.Buyer
+                To = FeeToType.Buyer
             });
             Assert.NotNull(createdFee);
-            Assert.Equal(ReceiverOfFee.Buyer, createdFee.To);
+            Assert.Equal(FeeToType.Buyer, createdFee.To);
             Assert.Equal(FeeType.Fixed, createdFee.FeeType);
         }
 

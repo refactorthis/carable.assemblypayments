@@ -42,6 +42,6 @@ namespace PromisePayDotNet.Dto
         /// Who pays the fee (buyer, seller, cc, int_wire)
         /// </summary>
         [JsonProperty(PropertyName = "to")]
-        public ReceiverOfFee To { get; set; }
+        public FeeToType To { get; set; }
     }
 }

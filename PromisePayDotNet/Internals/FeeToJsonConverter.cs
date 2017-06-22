@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using PromisePayDotNet.Dto;
+using PromisePayDotNet.Enums;
 
 namespace PromisePayDotNet.Internals
 {
-    public class ReceiverOfFeeJsonConverter : JsonConverter
+    public class FeeToJsonConverter : JsonConverter
     {
-        private static readonly IDictionary<string, ReceiverOfFee> stringToEnum;
-        private static readonly Dictionary<ReceiverOfFee, string> enumToString;
+        private static readonly IDictionary<string, PaymentOfFeeFrom> stringToEnum;
+        private static readonly Dictionary<PaymentOfFeeFrom, string> enumToString;
 
-        static ReceiverOfFeeJsonConverter()
+        static FeeToJsonConverter()
         {
-            stringToEnum = new Dictionary<string, ReceiverOfFee>() {
-                {"buyer", ReceiverOfFee.Buyer},
-                {"seller", ReceiverOfFee.Seller},
-                {"cc", ReceiverOfFee.CC},
-                {"int_wire", ReceiverOfFee.IntWire},
-                {"paypal_payout", ReceiverOfFee.PaypalPayout},
-                {"", ReceiverOfFee.None},
+            stringToEnum = new Dictionary<string, PaymentOfFeeFrom>() {
+                {"buyer", PaymentOfFeeFrom.Buyer},
+                {"seller", PaymentOfFeeFrom.Seller},
+                {"cc", PaymentOfFeeFrom.CC},
+                {"int_wire", PaymentOfFeeFrom.IntWire},
+                {"paypal_payout", PaymentOfFeeFrom.PaypalPayout},
+                {"", PaymentOfFeeFrom.None},
             };
             enumToString = stringToEnum.ToDictionary(kv => kv.Value, kv => kv.Key);
         }
@@ -27,16 +27,16 @@ namespace PromisePayDotNet.Internals
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(ReceiverOfFee);
+            return objectType == typeof(PaymentOfFeeFrom);
         }
 
-        public static ReceiverOfFee Parse(string str)
+        public static PaymentOfFeeFrom Parse(string str)
         {
             if (stringToEnum.TryGetValue(str, out var receiver)) return receiver;
             throw new Exception($"Unknown value {str}");
         }
 
-        public static string ToString(ReceiverOfFee receiver)
+        public static string ToString(PaymentOfFeeFrom receiver)
         {
             if (enumToString.TryGetValue(receiver, out var str))
             {
@@ -55,7 +55,7 @@ namespace PromisePayDotNet.Internals
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(ToString((ReceiverOfFee)value));
+            writer.WriteValue(ToString((PaymentOfFeeFrom)value));
         }
     }
 }

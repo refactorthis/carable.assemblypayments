@@ -63,7 +63,7 @@ namespace PromisePayDotNet.Implementations
             public string Max { get; set; }
 
             [JsonProperty(PropertyName = "to")]
-            public ReceiverOfFee To { get; set; }
+            public PaymentOfFeeFrom To { get; set; }
         }
 
         public async Task<Fee> CreateFeeAsync(Fee fee)
@@ -89,12 +89,12 @@ namespace PromisePayDotNet.Implementations
             if (!_possibleTos.Contains(fee.To))
             {
                 throw new ValidationException(
-                    "To should have value of "+string.Join(", ", _possibleTos.Select(to=> $"\"{ReceiverOfFeeJsonConverter.ToString(to)}\"")));
+                    "To should have value of "+string.Join(", ", _possibleTos.Select(to=> $"\"{FeeToJsonConverter.ToString(to)}\"")));
             }
         }
 
-        private readonly List<ReceiverOfFee> _possibleTos = new List<ReceiverOfFee> { 
-               ReceiverOfFee.Buyer, ReceiverOfFee.Seller, ReceiverOfFee.CC, ReceiverOfFee.IntWire, ReceiverOfFee.PaypalPayout 
+        private readonly List<PaymentOfFeeFrom> _possibleTos = new List<PaymentOfFeeFrom> { 
+               PaymentOfFeeFrom.Buyer, PaymentOfFeeFrom.Seller, PaymentOfFeeFrom.CC, PaymentOfFeeFrom.IntWire, PaymentOfFeeFrom.PaypalPayout 
         };
     }
 }
