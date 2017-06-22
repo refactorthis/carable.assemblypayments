@@ -25,7 +25,9 @@ namespace PromisePayDotNet.Dto
 
         [JsonProperty(PropertyName = "status")]
         public int Status { get; set; }
-
+        /// <summary>
+        /// The cost in cents
+        /// </summary>
         [JsonProperty(PropertyName = "amount")]
         public int Amount { get; set; }
 

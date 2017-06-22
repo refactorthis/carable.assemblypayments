@@ -63,7 +63,7 @@ namespace PromisePayDotNet.Implementations
             public string Max { get; set; }
 
             [JsonProperty(PropertyName = "to")]
-            public PaymentOfFeeFrom To { get; set; }
+            public FeeToType To { get; set; }
         }
 
         public async Task<Fee> CreateFeeAsync(Fee fee)
@@ -93,8 +93,8 @@ namespace PromisePayDotNet.Implementations
             }
         }
 
-        private readonly List<PaymentOfFeeFrom> _possibleTos = new List<PaymentOfFeeFrom> { 
-               PaymentOfFeeFrom.Buyer, PaymentOfFeeFrom.Seller, PaymentOfFeeFrom.CC, PaymentOfFeeFrom.IntWire, PaymentOfFeeFrom.PaypalPayout 
+        private readonly List<FeeToType> _possibleTos = new List<FeeToType> { 
+               FeeToType.Buyer, FeeToType.Seller, FeeToType.CC, FeeToType.IntWire, FeeToType.PaypalPayout 
         };
     }
 }
