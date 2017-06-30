@@ -17,41 +17,34 @@ namespace Carable.AssemblyPayments.Tests
             Assert.Equal("a2711d90-ed41-4d12-81d2-000000000002", upload.Id);
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip = "Not implemented yet")]
         public void CreateUploadSuccessfully()
         {
             throw new System.Exception();
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip = "Not implemented yet")]
         public void ListUploadsSuccessfully()
         {
             throw new System.Exception();
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip = "Not implemented yet")]
         public void GetUploadByIdSuccessfully()
         {
             throw new System.Exception();
         }
 
-
-
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip = "Not implemented yet")]
         public void GetStatusSuccessfully()
         {
-            throw new System.Exception();            
+            throw new System.Exception();
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip = "Not implemented yet")]
         public void StartImportSuccessfully()
         {
-            throw new System.Exception();            
+            throw new System.Exception();
         }
 
 

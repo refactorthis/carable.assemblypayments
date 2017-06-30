@@ -30,7 +30,7 @@ namespace Carable.AssemblyPayments.Implementations
         }
 
         protected AssemblyPaymentsSettings Configurataion { get; }
-      
+
         protected string BaseUrl
         {
             get
@@ -56,7 +56,7 @@ namespace Carable.AssemblyPayments.Implementations
                     throw new MisconfigurationException("Unable to get Login info from config file");
                 }
                 return baseUrl;
-               
+
             }
         }
 
@@ -87,6 +87,11 @@ namespace Carable.AssemblyPayments.Implementations
                     "Executed request to {0} with method {1}, got the following status: {2} and the body is {3}",
                     response.ResponseUri, request.Method, response.StatusDescription, response.Content));
 
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                throw new NotFoundException("Not found");
+            }
+
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 log.LogError("Your login/password are unknown to server");
@@ -101,7 +106,7 @@ namespace Carable.AssemblyPayments.Implementations
             }
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
-                var message = JsonConvert.DeserializeObject<IDictionary<string,string>>(response.Content)["message"];
+                var message = JsonConvert.DeserializeObject<IDictionary<string, string>>(response.Content)["message"];
                 log.LogError(String.Format("Bad request: {0}", message));
                 throw new ApiErrorsException(message, null);
             }

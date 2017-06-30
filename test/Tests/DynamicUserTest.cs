@@ -232,7 +232,7 @@ namespace Carable.AssemblyPayments.Tests
             var client = GetMockClient(content, System.Net.HttpStatusCode.NotFound);
             var repo = Get<IUserRepository>(client.Object);
             var id = Guid.NewGuid().ToString();
-            Assert.False(repo.DeleteUser(id));
+            Assert.Throws<NotFoundException>(() => repo.DeleteUser(id));
         }
 
 
@@ -302,8 +302,7 @@ namespace Carable.AssemblyPayments.Tests
         }
 
 
-        //[Fact]
-        //[Ignore("Currently, this test returns 401")]
+        [Fact(Skip = "Not implemented yet")]
         public void SendMobilePinSuccessful()
         {
             throw new System.Exception();
@@ -319,9 +318,8 @@ namespace Carable.AssemblyPayments.Tests
             var items = repo.ListItemsForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
-        public void ListUserDisbursementAccountsSuccessful()
+		[Fact(Skip = "Not implemented yet")]
+		public void ListUserDisbursementAccountsSuccessful()
         {
             throw new System.Exception();
         }
@@ -389,8 +387,7 @@ namespace Carable.AssemblyPayments.Tests
             var items = repo.GetPayPalAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
         }
 
-        //[Fact]
-        //[Ignore("Not implemented yet")]
+        [Fact(Skip="Not implemented yet")]
         public void ListUserDisbursementAccountsEmpty()
         {
             //throw new System.Exception();

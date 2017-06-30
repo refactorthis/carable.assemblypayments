@@ -17,6 +17,7 @@ namespace Carable.AssemblyPayments.Internals
                 if (ex.InnerException != null && (
                     ex.InnerException is ApiErrorsException 
                     || ex.InnerException is UnauthorizedException
+                    || ex.InnerException is NotFoundException
                     || ex.InnerException is ArgumentException
                     || ex.InnerException is ValidationException))
                     throw ex.InnerException;

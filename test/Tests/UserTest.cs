@@ -295,7 +295,7 @@ namespace Carable.AssemblyPayments.Tests
             var client = GetMockClient(content, System.Net.HttpStatusCode.NotFound);
             var repo = Get<IUserRepository>(client.Object);
             var id = Guid.NewGuid().ToString();
-            Assert.False(repo.DeleteUser(id));
+            Assert.Throws<NotFoundException>(() =>repo.DeleteUser(id));
         }
 
 
