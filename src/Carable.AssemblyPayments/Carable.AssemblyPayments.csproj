@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <PackageId>PromisePay.API.NET</PackageId>
+    <PackageId>Carable.AssemblyPayments</PackageId>
     <Authors>Igor Sidorov, Carable developers</Authors>
-    <Company>PromisePay</Company>
-    <Product>PromisePayDotNet</Product>
-    <Description>This package provides an easy way to use PromisePay API</Description>
-    <AssemblyName>PromisePayDotNet</AssemblyName>
-    <RootNamespace>PromisePayDotNet</RootNamespace>
+    <Company>Carable</Company>
+    <Product>Carable.AssemblyPayments</Product>
+    <Description>This package provides an easy way to use Assembly Payments API</Description>
+    <AssemblyName>Carable.AssemblyPayments</AssemblyName>
+    <RootNamespace>Carable.AssemblyPayments</RootNamespace>
 
-    <VersionPrefix>2.0.0</VersionPrefix>
-    <VersionSuffix>alpha-3</VersionSuffix>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>alpha-1</VersionSuffix>
 
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
     <Version Condition=" '$(VersionSuffix)' == '' ">$(VersionPrefix)</Version>
@@ -19,9 +19,9 @@
     <FileVersion>$(VersionPrefix).0</FileVersion>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageProjectUrl>https://github.com/PromisePay/promisepay-dotnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/carable/promisepay-dotnet</RepositoryUrl>
-    <PackageReleaseNotes>.net Core version and .net 45 version of PromisePay client</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/carable/carable.assemblypayments</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/carable.assemblypayments</RepositoryUrl>
+    <PackageReleaseNotes>.net Core version of PromisePay client</PackageReleaseNotes>
 
   </PropertyGroup>
 
