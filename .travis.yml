@@ -1,6 +1,6 @@
 sudo: required
 language: csharp
-dotnet: 1.0.3
+dotnet: 1.0.4
 mono:
   - 4.8.0
 dist: trusty
@@ -8,7 +8,7 @@ os:
   - linux
 script: 
   - dotnet restore
-  - dotnet build PromisePayDotNet
-  - dotnet build PromisePayDotNet.Tests
-  - cd PromisePayDotNet.Tests
+  - dotnet build src/Carable.AssemblyPayments
+  - dotnet build test/Tests
+  - cd test/Tests
   - dotnet test 
