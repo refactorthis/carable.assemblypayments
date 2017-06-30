@@ -20,9 +20,9 @@ namespace Carable.AssemblyPayments.Tests
             }
             services.AddAssemblyPayments(new AssemblyPaymentsSettings
             {
-                ApiUrl = "https://test.api.promisepay.com",
+                ApiUrl = "https://test.api.promisepay.xy",
                 Login = "idsidorov@gmail.com",
-                Password = "mJrUGo2Vxuo9zqMVAvkw"
+                Password = "xcdaserreywl;kj;"
             });
             if (null != client)
             {
@@ -32,9 +32,6 @@ namespace Carable.AssemblyPayments.Tests
             services.AddLogging();
             return services.BuildServiceProvider();
         }
-
-
-        protected TRepo Get<TRepo>() => CreateDi().GetRequiredService<TRepo>();
         protected TRepo Get<TRepo>(IRestClient client) => CreateDi(client).GetRequiredService<TRepo>();
 
         protected Mock<IRestClient> GetMockClient(string content)

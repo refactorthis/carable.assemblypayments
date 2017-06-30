@@ -31,10 +31,7 @@ namespace Carable.AssemblyPayments.Internals
             {
                 req.Content = new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json");
             }
-            else
-            {
-                req.Headers.Add("Content-Type", "application/json");
-            }
+
             Authenticator?.Add(req);
 
             var result = await _client.SendAsync(req);

@@ -110,6 +110,7 @@ namespace Carable.AssemblyPayments.Implementations
                 log.LogError(String.Format("Bad request: {0}", message));
                 throw new ApiErrorsException(message, null);
             }
+
             return response;
         }
 

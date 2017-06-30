@@ -240,52 +240,7 @@ namespace Carable.AssemblyPayments.Tests
             Assert.Throws<ApiErrorsException>(() => repo.GetUserById(id));
         }
 
-        //[Fact]
-        //[Ignore("Skipped until API method will be fixed")]
-        public void DeleteUserSuccessful()
-        {
-            //First, create a user with known id
-            var repo = Get<IUserRepository>();
-            var id = Guid.NewGuid().ToString();
-            var user = new User
-            {
-                Id = id,
-                FirstName = "Test",
-                LastName = "Test",
-                City = "Test",
-                AddressLine1 = "Line 1",
-                Country = "AUS",
-                State = "state",
-                Zip = "123456",
-                Email = id + "@google.com"
-            };
 
-            var createdUser = repo.CreateUser(user);
-
-            //Then, get user
-            var gotUser = repo.GetUserById(id);
-            Assert.NotNull(gotUser);
-            Assert.Equal(gotUser.Id, id);
-
-            //Now, delete user
-            repo.DeleteUser(id);
-
-            //And check whether user exists now
-            var success = false;
-            try
-            {
-                repo.GetUserById(id);
-            }
-            catch (UnauthorizedException)
-            {
-                success = true;
-            }
-
-            if (!success)
-            {
-                throw new Exception("Delete user failed!");
-            }
-        }
 
         [Fact]
         //That's bad idea not to distinguish between "wrong login/password" and "There is no such ID in DB"
@@ -363,7 +318,6 @@ namespace Carable.AssemblyPayments.Tests
         //[Ignore("Currently, this test returns 401")] 
         public void SendMobilePinSuccessful()
         {
-            var repo = Get<IUserRepository>();
         }
 
         [Fact]
