@@ -46,3 +46,7 @@ Then, you can use repositories from package, by resolving interface with contain
 	3. Commit your changes (`git commit -am 'Add some feature'`)
 	4. Push to the branch (`git push origin my-new-feature`)
 	5. Create a new Pull Request
+	
+# 4. Documentation
+
+Please refer to [assemblypayments](https://reference.assemblypayments.com) reference documentation.
