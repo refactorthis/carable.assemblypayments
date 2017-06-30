@@ -13,7 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <summary>
         /// Add promise pay repositories
         /// </summary>
-        public static IServiceCollection AddPromisePay(this IServiceCollection container)
+        public static IServiceCollection AddAssemblyPayments(this IServiceCollection container)
         {
             return AddAssemblyPayments(container, null);
         }
