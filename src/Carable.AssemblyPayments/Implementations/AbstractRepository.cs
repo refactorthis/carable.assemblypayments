@@ -38,8 +38,8 @@ namespace Carable.AssemblyPayments.Implementations
                 var baseUrl = Configurataion.ApiUrl;
                 if (baseUrl == null)
                 {
-                    log.LogError("Unable to get URL info from config file");
-                    throw new MisconfigurationException("Unable to get URL info from config file");
+                    log.LogError("Unable to get URL info from configuration");// why log and throw?
+                    throw new MisconfigurationException("Unable to get URL info from configuration");
                 }
                 return baseUrl;
             }
@@ -52,8 +52,8 @@ namespace Carable.AssemblyPayments.Implementations
                 var baseUrl = Configurataion.Login;
                 if (baseUrl == null)
                 {
-                    log.LogError("Unable to get Login info from config file");
-                    throw new MisconfigurationException("Unable to get Login info from config file");
+                    log.LogError("Unable to get Login info from configuration"); // why log and throw?
+                    throw new MisconfigurationException("Unable to get Login info from configuration");
                 }
                 return baseUrl;
 

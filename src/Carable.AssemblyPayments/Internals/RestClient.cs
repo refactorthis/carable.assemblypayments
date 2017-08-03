@@ -26,8 +26,8 @@ namespace Carable.AssemblyPayments.Internals
                 Method = request.Method,
                 RequestUri = rel,
             };
-			req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			if (request.Body != null)
+            req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            if (request.Body != null)
             {
                 req.Content = new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json");
             }
