@@ -1,4 +1,5 @@
 ﻿using Carable.AssemblyPayments.Abstractions;
+using Carable.AssemblyPayments.Exceptions;
 using Carable.AssemblyPayments.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,30 @@ namespace Tests
 
             var prov = services.BuildServiceProvider();
             var userRepo = prov.GetRequiredService<IUserRepository>();
+        }
+
+        [Fact]
+        public void Should_fail_when_there_is_a_missing_url()
+        {
+            var b = new ConfigurationBuilder();
+            b.AddInMemoryCollection(new[] {
+                new KeyValuePair<string, string>("ASM:ApiUrl", "" ),
+                new KeyValuePair<string, string>("ASM:Login", "somelogin" ),
+                new KeyValuePair<string, string>("ASM:Password", "somepassword" )
+            });
+            var Configuration = b.Build();
+            var services = new ServiceCollection();
+
+            services.AddOptions();
+            services.Configure<AssemblyPaymentsSettings>(Configuration.GetSection("ASM"));
+            services.AddAssemblyPayments();
+            services.AddLogging();
+
+            var prov = services.BuildServiceProvider();
+            Assert.Throws<MisconfigurationException>(() =>
+            {
+                var userRepo = prov.GetRequiredService<IUserRepository>();
+            });
         }
     }
 }
