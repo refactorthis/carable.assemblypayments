@@ -49,16 +49,8 @@ namespace Carable.AssemblyPayments.Implementations
 
         public async Task<Item> CreateItemAsync(Item item)
         {
-            var request = new RestRequest("/items", Method.POST);
-            request.AddParameter("id", item.Id);
-            request.AddParameter("name", item.Name);
-            request.AddParameter("amount", item.Amount);
-            request.AddParameter("payment_type", (int)item.PaymentType);
-            request.AddParameter("buyer_id", item.BuyerId);
-            request.AddParameter("seller_id", item.SellerId);
-            request.AddParameter("fee_ids", item.FeeIds);
-            request.AddParameter("description", item.Description);
-             var response = await SendRequestAsync(Client, request);
+            var request = new RestRequest("/items", Method.POST, item);
+            var response = await SendRequestAsync(Client, request);
             return JsonConvert.DeserializeObject<IDictionary<string, Item>>(response.Content).Values.First();
         }
 

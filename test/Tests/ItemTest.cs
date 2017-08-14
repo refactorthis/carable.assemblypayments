@@ -1,12 +1,10 @@
-﻿using System.IO;
-using System.Net;
+﻿using System.Net;
 using Moq;
 using Newtonsoft.Json;
 using Xunit;
 using Carable.AssemblyPayments.Entities;
 using Carable.AssemblyPayments.ValueTypes;
 using Carable.AssemblyPayments.Exceptions;
-using Carable.AssemblyPayments.Implementations;
 using System;
 using System.Linq;
 using Carable.AssemblyPayments.Internals;
