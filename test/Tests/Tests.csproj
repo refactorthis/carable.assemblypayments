@@ -31,6 +31,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fixtures\callback_create.json" />
+    <Content Include="Fixtures\callback_edit.json" />
+    <Content Include="Fixtures\callback_get.json" />
+    <Content Include="Fixtures\callback_get_by_id.json" />
+  </ItemGroup>
  
   <ItemGroup>
     <Content Update="Fixtures\address_get_by_id.json">

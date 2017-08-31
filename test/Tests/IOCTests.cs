@@ -3,9 +3,7 @@ using Carable.AssemblyPayments.Exceptions;
 using Carable.AssemblyPayments.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Tests
