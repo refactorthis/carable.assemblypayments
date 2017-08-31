@@ -29,7 +29,7 @@ namespace Carable.AssemblyPayments.Entities
         /// The cost in cents
         /// </summary>
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         [JsonProperty(PropertyName = "buyer_id")]
         public string BuyerId { get; set; }
@@ -61,15 +61,19 @@ namespace Carable.AssemblyPayments.Entities
         [JsonIgnore]
         public List<Fee> Fees { get; set; }
 
+        /// <summary>
+        /// Gets the fee identifiers, used to serialize
+        /// </summary>
+        /// <value>The fee identifiers.</value>
         [JsonProperty(PropertyName = "fee_ids")]
-        public List<string> FeeIds {
+        public string[] FeeIds {
             get
             {
                 if (Fees == null || !Fees.Any())
                 {
                     return null;
                 }
-                return Fees.Select(x => x.Id).ToList();
+                return Fees.Select(x => x.Id).ToArray();
             }
         }
 
