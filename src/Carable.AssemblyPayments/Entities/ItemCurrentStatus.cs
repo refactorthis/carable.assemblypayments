@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Carable.AssemblyPayments.Entities
 {
@@ -9,8 +10,5 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "status")]
         public ItemStatus Status { get; set; }
-
-        [JsonProperty(PropertyName = "state")]
-        public string State { get; set; }
     }
 }
