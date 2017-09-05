@@ -39,7 +39,7 @@ namespace Carable.AssemblyPayments.Abstractions
         /// <summary>
         /// Show the status of an Item using a given :id.
         /// </summary>
-        Task<ItemStatus> GetStatusForItemAsync(string itemId);
+        Task<ItemCurrentStatus> GetStatusForItemAsync(string itemId);
         /// <summary>
         /// Show the Fees associated with the Item using a given :id.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Carable.AssemblyPayments.Abstractions
         public static bool DeleteItem(this IItemRepository repo, string itemId) => repo.DeleteItemAsync(itemId).WrapResult();
         public static Item UpdateItem(this IItemRepository repo, Item item) => repo.UpdateItemAsync(item).WrapResult();
         public static IEnumerable<Transaction> ListTransactionsForItem(this IItemRepository repo, string itemId) => repo.ListTransactionsForItemAsync(itemId).WrapResult();
-        public static ItemStatus GetStatusForItem(this IItemRepository repo, string itemId) => repo.GetStatusForItemAsync(itemId).WrapResult();
+        public static ItemCurrentStatus GetStatusForItem(this IItemRepository repo, string itemId) => repo.GetStatusForItemAsync(itemId).WrapResult();
         public static IEnumerable<Fee> ListFeesForItem(this IItemRepository repo, string itemId) => repo.ListFeesForItemAsync(itemId).WrapResult();
         public static User GetBuyerForItem(this IItemRepository repo, string itemId) => repo.GetBuyerForItemAsync(itemId).WrapResult();
         public static User GetSellerForItem(this IItemRepository repo, string itemId) => repo.GetSellerForItemAsync(itemId).WrapResult();
