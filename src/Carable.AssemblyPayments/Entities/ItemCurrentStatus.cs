@@ -5,7 +5,7 @@ namespace Carable.AssemblyPayments.Entities
     public class ItemCurrentStatus
     {
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string ItemId { get; set; }
 
         [JsonProperty(PropertyName = "status")]
         public ItemStatus Status { get; set; }
