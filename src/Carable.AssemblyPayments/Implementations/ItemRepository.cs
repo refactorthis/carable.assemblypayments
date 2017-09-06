@@ -110,7 +110,7 @@ namespace Carable.AssemblyPayments.Implementations
             return new List<Transaction>();
         }
 
-        public async Task<ItemCurrentStatus> GetStatusForItemAsync(string itemId)
+        public async Task<ItemStatus?> GetStatusForItemAsync(string itemId)
         {
             AssertIdNotNull(itemId);
             var request = new RestRequest("/items/{id}/status", Method.GET);
@@ -120,7 +120,7 @@ namespace Carable.AssemblyPayments.Implementations
             if (dict.ContainsKey("items"))
             {
                 var itemCollection = dict["items"];
-                return JsonConvert.DeserializeObject<ItemCurrentStatus>(JsonConvert.SerializeObject(itemCollection));
+                return JsonConvert.DeserializeObject<ItemCurrentStatus>(JsonConvert.SerializeObject(itemCollection)).Status;
             }
             return null;
         }
