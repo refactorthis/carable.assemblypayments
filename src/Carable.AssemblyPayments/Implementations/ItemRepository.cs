@@ -370,5 +370,14 @@ namespace Carable.AssemblyPayments.Implementations
             }
             return null;
         }
+
+        private class ItemCurrentStatus
+        {
+            [JsonProperty(PropertyName = "id")]
+            public string ItemId { get; set; }
+
+            [JsonProperty(PropertyName = "status")]
+            public ItemStatus Status { get; set; }
+        }
     }
 }
