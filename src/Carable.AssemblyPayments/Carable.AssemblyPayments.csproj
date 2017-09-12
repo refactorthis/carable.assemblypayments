@@ -10,7 +10,7 @@
     <AssemblyName>Carable.AssemblyPayments</AssemblyName>
     <RootNamespace>Carable.AssemblyPayments</RootNamespace>
 
-    <VersionPrefix>3.1.0</VersionPrefix>
+    <VersionPrefix>4.1.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
 
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
@@ -22,7 +22,6 @@
     <PackageProjectUrl>https://github.com/carable/carable.assemblypayments</PackageProjectUrl>
     <RepositoryUrl>https://github.com/carable.assemblypayments</RepositoryUrl>
     <PackageReleaseNotes>.net Core version of PromisePay client</PackageReleaseNotes>
-    <Version>4.0.0</Version>
 
   </PropertyGroup>
 
