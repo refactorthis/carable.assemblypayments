@@ -73,7 +73,7 @@ namespace Carable.AssemblyPayments.Entities
                 {
                     return null;
                 }
-                return string.Join(",", Fees.Select(x => x.Id).ToArray());
+                return string.Join(",", Fees.Select(x => x.Id));
             }
         }
 
