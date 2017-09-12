@@ -32,7 +32,7 @@ namespace Carable.AssemblyPayments.Tests
             var account = new BankAccount
             {   UserId= userId ,
                 Active = true ,
-                Bank = new Bank
+                Details = new BankAccountDetails
                 {   BankName = "Test bank, inc",
                    AccountName = "Test account",
                    AccountNumber = "8123456789",
@@ -49,7 +49,7 @@ namespace Carable.AssemblyPayments.Tests
             Assert.Equal("AUD", (string)createdAccount.Currency); // It seems that currency is determined by country
             Assert.NotNull(createdAccount.CreatedAt);
             Assert.NotNull(createdAccount.UpdatedAt);
-            Assert.Equal("XXX789", (string)createdAccount.Bank.AccountNumber); //Account number is masked
+            Assert.Equal("XXX789", (string)createdAccount.Details.AccountNumber); //Account number is masked
         }
         
         [Fact]

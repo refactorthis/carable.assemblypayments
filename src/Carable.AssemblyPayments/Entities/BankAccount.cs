@@ -6,6 +6,6 @@ namespace Carable.AssemblyPayments.Entities
     public class BankAccount : AbstractAccount
     {
         [JsonProperty(PropertyName = "bank")]
-        public Bank Bank { get; set; }
+        public BankAccountDetails Details { get; set; }
     }
 }

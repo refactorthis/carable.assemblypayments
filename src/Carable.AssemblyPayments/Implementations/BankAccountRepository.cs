@@ -32,13 +32,13 @@ namespace Carable.AssemblyPayments.Implementations
         {
             var request = new RestRequest("/bank_accounts", Method.POST);
             request.AddParameter("user_id", bankAccount.UserId);
-            request.AddParameter("bank_name", bankAccount.Bank.BankName);
-            request.AddParameter("account_name", bankAccount.Bank.AccountName);
-            request.AddParameter("routing_number", bankAccount.Bank.RoutingNumber);
-            request.AddParameter("account_number", bankAccount.Bank.AccountNumber);
-            request.AddParameter("account_type", bankAccount.Bank.AccountType);
-            request.AddParameter("holder_type", bankAccount.Bank.HolderType);
-            request.AddParameter("country", bankAccount.Bank.Country);
+            request.AddParameter("bank_name", bankAccount.Details.BankName);
+            request.AddParameter("account_name", bankAccount.Details.AccountName);
+            request.AddParameter("routing_number", bankAccount.Details.RoutingNumber);
+            request.AddParameter("account_number", bankAccount.Details.AccountNumber);
+            request.AddParameter("account_type", bankAccount.Details.AccountType);
+            request.AddParameter("holder_type", bankAccount.Details.HolderType);
+            request.AddParameter("country", bankAccount.Details.Country);
             
             var response = await SendRequestAsync(Client, request);
             return JsonConvert.DeserializeObject<IDictionary<string, BankAccount>>(response.Content).Values.First();

@@ -2,7 +2,7 @@
 
 namespace Carable.AssemblyPayments.ValueTypes
 {
-    public class Bank
+    public class BankAccountDetails
     {
         [JsonProperty(PropertyName = "bank_name")]
         public string BankName { get; set; }
