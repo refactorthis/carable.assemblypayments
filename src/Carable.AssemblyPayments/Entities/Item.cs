@@ -66,14 +66,14 @@ namespace Carable.AssemblyPayments.Entities
         /// </summary>
         /// <value>The fee identifiers.</value>
         [JsonProperty(PropertyName = "fee_ids")]
-        public string[] FeeIds {
+        public string FeeIds {
             get
             {
                 if (Fees == null || !Fees.Any())
                 {
                     return null;
                 }
-                return Fees.Select(x => x.Id).ToArray();
+                return string.Join(",", Fees.Select(x => x.Id));
             }
         }
 
