@@ -19,7 +19,7 @@ namespace Carable.AssemblyPayments.Implementations
         }
 
 
-        public async Task<CardToken> GenerateCardTokenAsync(string tokenType, string userId)
+        public async Task<CardToken> GenerateTokenAsync(string tokenType, string userId)
         {
             var request = new RestRequest("/token_auths", Method.POST);
             request.AddParameter("token_type", tokenType);

@@ -11,10 +11,10 @@ namespace Carable.AssemblyPayments.Abstractions
         /// https://reference.assemblypayments.com/#token-auth
         /// Create a card token that can be used with the PromisePay.js package to securely send Assembly credit card details.
         /// </summary>
-        Task<CardToken> GenerateCardTokenAsync(string tokenType, string userId);
+        Task<CardToken> GenerateTokenAsync(string tokenType, string userId);
     }
     public static class TokenRepositoryExtensions
     {
-        public static CardToken GenerateCardToken(this ITokenRepository repo, string tokenType, string userId) => repo.GenerateCardTokenAsync(tokenType, userId).WrapResult();
+        public static CardToken GenerateToken(this ITokenRepository repo, string tokenType, string userId) => repo.GenerateTokenAsync(tokenType, userId).WrapResult();
     }
 }
