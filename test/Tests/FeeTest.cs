@@ -40,7 +40,7 @@ namespace Carable.AssemblyPayments.Tests
                 Cap = "1",
                 Max = "3",
                 Min = "2",
-                To = FeeToType.Buyer
+                Payer = FeePayer.Buyer
             });
             Assert.NotNull(createdFee);
         }

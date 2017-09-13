@@ -42,6 +42,6 @@ namespace Carable.AssemblyPayments.Entities
         /// Who pays the fee (buyer, seller, cc, int_wire)
         /// </summary>
         [JsonProperty(PropertyName = "to")]
-        public FeeToType To { get; set; }
+        public FeePayer Payer { get; set; }
     }
 }

@@ -63,7 +63,7 @@ namespace Carable.AssemblyPayments.Implementations
             public string Max { get; set; }
 
             [JsonProperty(PropertyName = "to")]
-            public FeeToType To { get; set; }
+            public FeePayer Payer { get; set; }
         }
 
         public async Task<Fee> CreateFeeAsync(Fee fee)
@@ -76,7 +76,7 @@ namespace Carable.AssemblyPayments.Implementations
                 FeeType = (int)fee.FeeType,
                 Max =fee.Max,
                 Min = fee.Min,
-                To = fee.To
+                Payer = fee.Payer
             });
 
             var response = await SendRequestAsync(Client, request);
@@ -86,15 +86,15 @@ namespace Carable.AssemblyPayments.Implementations
         private void VailidateFee(Fee fee)
         {
             if (fee == null) throw new ArgumentNullException(nameof(fee));
-            if (!_possibleTos.Contains(fee.To))
+            if (!_possibleFeePayers.Contains(fee.Payer))
             {
                 throw new ValidationException(
-                    "To should have value of "+string.Join(", ", _possibleTos.Select(to=> $"\"{FeeToJsonConverter.ToString(to)}\"")));
+                    "Payer should have value of "+string.Join(", ", _possibleFeePayers.Select(to=> $"\"{FeePayerToJsonConverter.ToString(to)}\"")));
             }
         }
 
-        private readonly List<FeeToType> _possibleTos = new List<FeeToType> { 
-               FeeToType.Buyer, FeeToType.Seller, FeeToType.CC, FeeToType.IntWire, FeeToType.PaypalPayout 
+        private readonly List<FeePayer> _possibleFeePayers = new List<FeePayer> { 
+               FeePayer.Buyer, FeePayer.Seller, FeePayer.CC, FeePayer.IntWire, FeePayer.PaypalPayout 
         };
     }
 }
