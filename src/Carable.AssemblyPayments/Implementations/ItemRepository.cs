@@ -206,7 +206,7 @@ namespace Carable.AssemblyPayments.Implementations
         {
             AssertIdNotNull(itemId);
             AssertIdNotNull(accountId);
-            var request = new RestRequest("/items/:id/make_payment", Method.PATCH);
+            var request = new RestRequest("/items/{id}/make_payment", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             request.AddParameter("account_id", accountId);
             var response = await SendRequestAsync(Client, request);
@@ -223,7 +223,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> RequestPaymentAsync(string itemId)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/request_payment", Method.PATCH);
+            var request = new RestRequest("/items/{id}/request_payment", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             var response = await SendRequestAsync(Client, request);
             var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
@@ -239,7 +239,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> ReleasePaymentAsync(string itemId, int releaseAmount)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/release_payment", Method.PATCH);
+            var request = new RestRequest("/items/{id}/release_payment", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             request.AddParameter("release_amount", releaseAmount);
             var response = await SendRequestAsync(Client, request);
@@ -256,7 +256,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> RequestReleaseAsync(string itemId, int releaseAmount)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/request_release", Method.PATCH);
+            var request = new RestRequest("/items/{id}/request_release", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             request.AddParameter("release_amount", releaseAmount);
             var response = await SendRequestAsync(Client, request);
@@ -273,7 +273,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> CancelAsync(string itemId)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/cancel", Method.PATCH);
+            var request = new RestRequest("/items/{id}/cancel", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             var response = await SendRequestAsync(Client, request);
             var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
@@ -289,7 +289,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> AcknowledgeWireAsync(string itemId)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/acknowledge_wire", Method.PATCH);
+            var request = new RestRequest("/items/{id}/acknowledge_wire", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             var response = await SendRequestAsync(Client, request);
             var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
@@ -306,7 +306,7 @@ namespace Carable.AssemblyPayments.Implementations
         {
             //NOTE: Not documented!
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/acknowledge_paypal", Method.PATCH);
+            var request = new RestRequest("/items/{id}/acknowledge_paypal", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             var response = await SendRequestAsync(Client, request);
             var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
@@ -322,7 +322,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> RevertWireAsync(string itemId)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/revert_wire", Method.PATCH);
+            var request = new RestRequest("/items/{id}/revert_wire", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             var response = await SendRequestAsync(Client, request);
             var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
@@ -338,7 +338,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> RequestRefundAsync(string itemId, string refundAmount, string refundMessage)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/request_refund", Method.PATCH);
+            var request = new RestRequest("/items/{id}/request_refund", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             request.AddParameter("refund_amount", refundAmount);
             request.AddParameter("refund_message", refundMessage);
@@ -356,7 +356,7 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<Item> RefundAsync(string itemId, string refundAmount, string refundMessage)
         {
             AssertIdNotNull(itemId);
-            var request = new RestRequest("/items/:id/refund", Method.PATCH);
+            var request = new RestRequest("/items/{id}/refund", Method.PATCH);
             request.AddUrlSegment("id", itemId);
             request.AddParameter("refund_amount", refundAmount);
             request.AddParameter("refund_message", refundMessage);
