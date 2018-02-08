@@ -364,7 +364,7 @@ namespace Carable.AssemblyPayments.Tests
             var client = GetMockClient(content, (System.Net.HttpStatusCode)422);
             var repo = Get<IUserRepository>(client.Object);
 
-            var items = repo.GetBankAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
+            Assert.Null(repo.GetBankAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639"));
         }
 
         [Fact]
@@ -374,7 +374,7 @@ namespace Carable.AssemblyPayments.Tests
             var client = GetMockClient(content, (System.Net.HttpStatusCode)422);
             var repo = Get<IUserRepository>(client.Object);
 
-            var items = repo.GetCardAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
+            Assert.Null(repo.GetCardAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639"));
         }
 
         [Fact]
@@ -384,7 +384,7 @@ namespace Carable.AssemblyPayments.Tests
             var client = GetMockClient(content, (System.Net.HttpStatusCode)422);
             var repo = Get<IUserRepository>(client.Object);
 
-            var items = repo.GetPayPalAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
+            Assert.Null(repo.GetPayPalAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639"));
         }
 
         [Fact(Skip="Not implemented yet")]

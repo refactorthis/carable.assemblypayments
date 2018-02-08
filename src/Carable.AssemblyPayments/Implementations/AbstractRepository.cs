@@ -101,7 +101,6 @@ namespace Carable.AssemblyPayments.Implementations
             if (((int)response.StatusCode) == 422)
             {
                 var errors = JsonConvert.DeserializeObject<ErrorsDAO>(response.Content).Errors;
-                log.LogError(String.Format("API returned following errors: {0}", JsonConvert.SerializeObject(errors)));
                 throw new ApiErrorsException("API returned errors, see Errors property", errors);
             }
             if (response.StatusCode == HttpStatusCode.BadRequest)
