@@ -106,6 +106,10 @@ namespace Carable.AssemblyPayments.Abstractions
         /// Refund an Item’s funds held in escrow. An partial amount can be specified otherwise the full amount will be refunded. This will transition the Item state to ‘refunded’ if the full amount is refunded, or to the previously held state if a partial amount is specified.
         /// </summary>
         Task<Item> RefundAsync(string itemId, string refundAmount, string refundMessage);
+        /// <summary>
+        /// Decline a refund request for an Item. This will transition the Item state to the previously held state.
+        /// </summary>
+        Task<Item> DeclineRefundAsync(string itemId);
     }
 
     public static class ItemRepositoryExtensions
@@ -132,5 +136,6 @@ namespace Carable.AssemblyPayments.Abstractions
         public static Item RevertWire(this IItemRepository repo, string itemId) => repo.RevertWireAsync(itemId).WrapResult();
         public static Item RequestRefund(this IItemRepository repo, string itemId, string refundAmount, string refundMessage) => repo.RequestRefundAsync(itemId, refundAmount, refundMessage).WrapResult();
         public static Item Refund(this IItemRepository repo, string itemId, string refundAmount, string refundMessage) => repo.RefundAsync(itemId, refundAmount, refundMessage).WrapResult();
+        public static Item DeclineRefund(this IItemRepository repo, string itemId) => repo.DeclineRefundAsync(itemId).WrapResult();
     }
 }
