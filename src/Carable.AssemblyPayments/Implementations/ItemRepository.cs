@@ -353,6 +353,22 @@ namespace Carable.AssemblyPayments.Implementations
             return null;
         }
 
+        public async Task<Item> DeclineRefundAsync(string itemId)
+        {
+            AssertIdNotNull(itemId);
+            var request = new RestRequest("/items/{id}/decline_refund", Method.PATCH);
+            request.AddUrlSegment("id", itemId);           
+            var response = await SendRequestAsync(Client, request);
+            var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
+            if (dict.ContainsKey("items"))
+            {
+                var itemCollection = dict["items"];
+                var item = JsonConvert.DeserializeObject<Item>(JsonConvert.SerializeObject(itemCollection));
+                return item;
+            }
+            return null;
+        }
+
         public async Task<Item> RefundAsync(string itemId, string refundAmount, string refundMessage)
         {
             AssertIdNotNull(itemId);
