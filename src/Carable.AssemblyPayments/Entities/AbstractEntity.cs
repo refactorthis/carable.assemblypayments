@@ -7,11 +7,6 @@ namespace Carable.AssemblyPayments.Entities
     public abstract class AbstractEntity
     {
         /// <summary>
-        /// Gets or sets the additional data.
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
         /// Gets or sets the links.
         /// </summary>
         [JsonProperty(PropertyName = "links")]

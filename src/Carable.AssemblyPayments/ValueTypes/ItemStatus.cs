@@ -1,4 +1,4 @@
-﻿namespace Carable.AssemblyPayments.Entities
+﻿namespace Carable.AssemblyPayments.ValueTypes
 {
     /// <summary>
     /// Emum representation of the Status Int
