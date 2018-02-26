@@ -1,5 +1,6 @@
 ﻿using Carable.AssemblyPayments.ValueTypes;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Carable.AssemblyPayments.Entities.Requests
 {
@@ -21,7 +22,7 @@ namespace Carable.AssemblyPayments.Entities.Requests
         /// <summary>
         /// object or entity to which the callbacks refer
         /// </summary>
-        [JsonProperty("object_type")]
+        [JsonProperty("object_type"), JsonConverter(typeof(StringEnumConverter))]
         public ObjectType ObjectType { get; set; }
         /// <summary>
         /// toggle whether callback is active or inactive
