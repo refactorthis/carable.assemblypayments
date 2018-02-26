@@ -5,6 +5,7 @@ using Carable.AssemblyPayments.Entities;
 using Carable.AssemblyPayments.Entities.Requests;
 using Carable.AssemblyPayments.Tests;
 using Carable.AssemblyPayments.ValueTypes;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace Carable.AssemblyPayments.Tests
@@ -33,6 +34,21 @@ namespace Carable.AssemblyPayments.Tests
             Assert.Equal(request.Description, response.Description);
             Assert.Equal(request.Enabled, response.Enabled);
             Assert.Equal(request.Url, response.Url);
+        }
+
+        [Fact]
+        public void CallbackRequestRendersJsonAs()
+        {
+            var request = new CallbackRequest
+            {
+                ObjectType = ObjectType.Users,
+                Description = "Users Callback",
+                Enabled = true,
+                Url = "https://httpbin.org/post"
+            };
+
+            var response = JsonConvert.SerializeObject(request);
+            Assert.Equal(@"{""description"":""Users Callback"",""url"":""https://httpbin.org/post"",""object_type"":""users"",""enabled"":true}",response);
         }
 
         [Fact]

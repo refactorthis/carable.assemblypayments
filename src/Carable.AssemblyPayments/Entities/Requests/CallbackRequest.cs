@@ -22,7 +22,7 @@ namespace Carable.AssemblyPayments.Entities.Requests
         /// <summary>
         /// object or entity to which the callbacks refer
         /// </summary>
-        [JsonProperty("object_type"), JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("object_type"), JsonConverter(typeof(StringEnumConverter),true)]
         public ObjectType ObjectType { get; set; }
         /// <summary>
         /// toggle whether callback is active or inactive

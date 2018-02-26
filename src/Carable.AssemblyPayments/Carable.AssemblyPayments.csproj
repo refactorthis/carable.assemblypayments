@@ -10,7 +10,7 @@
     <AssemblyName>Carable.AssemblyPayments</AssemblyName>
     <RootNamespace>Carable.AssemblyPayments</RootNamespace>
 
-    <VersionPrefix>6.0.1</VersionPrefix>
+    <VersionPrefix>6.0.2</VersionPrefix>
     <VersionSuffix></VersionSuffix>
 
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
