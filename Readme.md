@@ -1,6 +1,6 @@
 # .NET SDK - Carable wrapper to Assembly Payment API
 
-[![NuGet version](https://badge.fury.io/nu/carable%2Fcarable.assemblypayments.svg)](http://badge.fury.io/nu/carable%2Fcarable.assemblypayments) [![Build Status](https://travis-ci.org/carable/carable.assemblypayments.svg)](https://travis-ci.org/carable/carable.assemblypayments) [![Code Climate](https://codeclimate.com/github/carable/carable.assemblypayments/badges/gpa.svg)](https://codeclimate.com/github/carable/carable.assemblypayments) 
+[![NuGet version](https://badge.fury.io/nu/carable%2Fcarable.assemblypayments.svg)](http://badge.fury.io/nu/carable%2Fcarable.assemblypayments) [![Build Status](https://travis-ci.org/carable/carable.assemblypayments.svg)](https://travis-ci.org/carable/carable.assemblypayments)
 
 # 1. Installation
 
