@@ -11,6 +11,10 @@ namespace Carable.AssemblyPayments.Internals
     internal class RestClient : IRestClient
     {
         private HttpClient _client;
+        private JsonSerializerSettings contentSerializationSettings = new JsonSerializerSettings { 
+            NullValueHandling = NullValueHandling.Ignore
+        };
+
         public RestClient()
         {
             _client = new HttpClient();
@@ -29,7 +33,7 @@ namespace Carable.AssemblyPayments.Internals
             req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             if (request.Body != null)
             {
-                req.Content = new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json");
+                req.Content = new StringContent(JsonConvert.SerializeObject(request.Body, contentSerializationSettings), Encoding.UTF8, "application/json");
             }
 
             Authenticator?.Add(req);

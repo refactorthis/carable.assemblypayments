@@ -231,20 +231,8 @@ namespace Carable.AssemblyPayments.Implementations
         public async Task<User> UpdateUserAsync(User user)
         {
             ValidateUser(user);
-            var request = new RestRequest("/users/{id}", Method.PATCH);
+            var request = new RestRequest("/users/{id}", Method.PATCH, user);
             request.AddUrlSegment("id", user.Id);
-            request.AddParameter("id", user.Id);
-            request.AddParameter("first_name", user.FirstName);
-            request.AddParameter("last_name", user.LastName);
-            request.AddParameter("email", user.Email);
-            request.AddParameter("mobile", user.Mobile);
-            request.AddParameter("address_line1", user.AddressLine1);
-            request.AddParameter("address_line2", user.AddressLine2);
-            request.AddParameter("state", user.State);
-            request.AddParameter("city", user.City);
-            request.AddParameter("zip", user.Zip);
-            request.AddParameter("country", user.Country);
-
             var response = await SendRequestAsync(Client, request);
             return JsonConvert.DeserializeObject<IDictionary<string, User>>(response.Content).Values.First();
         }

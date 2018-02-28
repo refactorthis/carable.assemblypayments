@@ -9,10 +9,14 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "last_name")]
         public string LastName { get; set; }
-
+        /// <summary>
+        /// Unique to platform.
+        /// </summary>
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
-
+        /// <summary>
+        /// International number format. Include ’+’ and no spaces.
+        /// </summary>
         [JsonProperty(PropertyName = "mobile")]
         public string Mobile { get; set; }
 
@@ -30,10 +34,14 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "state")]
         public string State { get; set; }
-
+        /// <summary>
+        /// ISO 3166-1 alpha-3 country code (3 char)
+        /// </summary>
         [JsonProperty(PropertyName = "country")]
         public string Country { get; set; }
-
+        /// <summary>
+        /// Date of Birth (DD/MM/YYYY).
+        /// </summary>
         [JsonProperty(PropertyName = "dob")]
         public string Dob { get; set; }
 
@@ -45,5 +53,10 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "drivers_license")]
         public string DriversLicense { get; set; }
+        /// <summary>
+        /// Generic property for important KYC data. eg. SSN for US users, TFN for AU users.
+        /// </summary>
+        [JsonProperty(PropertyName = "government_number")]
+        public string GovernmentNumber { get; set; }
     }
 }

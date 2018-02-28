@@ -10,7 +10,7 @@
     <AssemblyName>Carable.AssemblyPayments</AssemblyName>
     <RootNamespace>Carable.AssemblyPayments</RootNamespace>
 
-    <VersionPrefix>6.0.2</VersionPrefix>
+    <VersionPrefix>6.1.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
 
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
@@ -20,8 +20,8 @@
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/carable/carable.assemblypayments</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/carable.assemblypayments</RepositoryUrl>
-    <PackageReleaseNotes>.net Core version of PromisePay client</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/carable/carable.assemblypayments</RepositoryUrl>
+    <PackageReleaseNotes>Adding additional properties to user type</PackageReleaseNotes>
 
   </PropertyGroup>
 
