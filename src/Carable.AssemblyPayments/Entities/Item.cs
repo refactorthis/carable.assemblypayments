@@ -22,9 +22,29 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "payment_type_id")]
         public PaymentType PaymentType { get; set; }
-
+        /// <summary>
+        /// The status of the item
+        /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public int Status { get; set; }
+        public ItemStatus Status { get; set; }
+        
+        [JsonProperty(PropertyName = "net_amount")]
+        public int? NetAmount { get; set; }
+        [JsonProperty(PropertyName = "refunded_amount")]
+        public int? RefundedAmount { get; set; }
+        [JsonProperty(PropertyName = "released_amount")]
+        public int? ReleasedAmount { get; set; }
+        [JsonProperty(PropertyName = "chargedback_amount")]
+        public int? ChargedbackAmount { get; set; }
+
+        [JsonProperty(PropertyName = "refund_state")]
+        public ItemRefundStatus? RefundState { get; set; }
+        [JsonProperty(PropertyName = "refund_message")]
+        public string RefundMessage { get; set; }
+        [JsonProperty(PropertyName = "refund_amount")]
+        public int? RefundAmount { get; set; }
+
+
         /// <summary>
         /// The cost in cents
         /// </summary>

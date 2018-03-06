@@ -89,7 +89,7 @@ namespace Carable.AssemblyPayments.Implementations
             if (!_possibleFeePayers.Contains(fee.Payer))
             {
                 throw new ValidationException(
-                    "Payer should have value of "+string.Join(", ", _possibleFeePayers.Select(to=> $"\"{FeePayerToJsonConverter.ToString(to)}\"")));
+                    "Payer should have value of "+string.Join(", ", _possibleFeePayers.Select(to=> $"\"{Enum.GetName(typeof(FeePayer), to)}\"")));
             }
         }
 

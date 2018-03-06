@@ -52,8 +52,25 @@ namespace Carable.AssemblyPayments.Tests
             Assert.Equal(user.LastName, createdUser.LastName);
             Assert.Equal("Test Test", createdUser.FullName);
             Assert.Equal(user.Email, createdUser.Email);
+            Assert.Equal(ValueTypes.UserVerificationStatus.Pending, createdUser.VerificationState);
             Assert.True(createdUser.CreatedAt.HasValue);
             Assert.True(createdUser.UpdatedAt.HasValue);
+        }
+
+        [Theory, 
+            InlineData("pending", ValueTypes.UserVerificationStatus.Pending), 
+            InlineData("pending_check", ValueTypes.UserVerificationStatus.PendingCheck), 
+            InlineData("approved_kyc_check", ValueTypes.UserVerificationStatus.ApprovedKycCheck), 
+            InlineData("approved", ValueTypes.UserVerificationStatus.Approved)]
+        public void GetUserWithStatus(string status, ValueTypes.UserVerificationStatus expected)
+        {
+            var content = Files.ReadAllText("./Fixtures/user_create.json");
+            var client = GetMockClient(content.Replace("\"pending\"", $"\"{status}\""));
+            var repo = Get<IUserRepository>(client.Object);
+           
+            var createdUser = repo.GetUserById("id");
+
+            Assert.Equal(expected, createdUser.VerificationState);
         }
 
         [Fact]

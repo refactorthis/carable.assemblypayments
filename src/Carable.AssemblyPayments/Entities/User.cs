@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Carable.AssemblyPayments.ValueTypes;
+using Newtonsoft.Json;
 
 namespace Carable.AssemblyPayments.Entities
 {
@@ -19,21 +20,37 @@ namespace Carable.AssemblyPayments.Entities
         /// </summary>
         [JsonProperty(PropertyName = "mobile")]
         public string Mobile { get; set; }
-
+        /// <summary>
+        /// Address: line1
+        /// </summary>
         [JsonProperty(PropertyName = "address_line1")]
         public string AddressLine1 { get; set; }
-
+        /// <summary>
+        /// Address: line2
+        /// </summary>
         [JsonProperty(PropertyName = "address_line2")]
         public string AddressLine2 { get; set; }
-
+        /// <summary>
+        /// Address: city
+        /// </summary>
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
-
+        /// <summary>
+        /// Address: zip
+        /// </summary>
         [JsonProperty(PropertyName = "zip")]
         public string Zip { get; set; }
 
+        /// <summary>
+        /// Address: state
+        /// </summary>
         [JsonProperty(PropertyName = "state")]
         public string State { get; set; }
+        /// <summary>
+        /// The verification status for the user
+        /// </summary>
+        [JsonProperty(PropertyName="verification_state")]
+        public UserVerificationStatus VerificationState { get; set; }
         /// <summary>
         /// ISO 3166-1 alpha-3 country code (3 char)
         /// </summary>
@@ -47,9 +64,6 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "full_name")]
         public string FullName { get; set; }
-
-        [JsonProperty(PropertyName = "verification_state")]
-        public string VerificationState { get; set; }
 
         [JsonProperty(PropertyName = "drivers_license")]
         public string DriversLicense { get; set; }

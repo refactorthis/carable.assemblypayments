@@ -98,6 +98,8 @@ namespace Carable.AssemblyPayments.Tests
 
             Assert.NotNull(gotItem);
             Assert.Equal(id, gotItem.Id);
+            Assert.Equal(ItemStatus.Pending, gotItem.Status);
+            Assert.Equal(null, gotItem.RefundState);
         }
 
         [Fact]
