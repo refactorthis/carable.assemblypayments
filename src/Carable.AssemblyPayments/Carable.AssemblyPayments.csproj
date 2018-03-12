@@ -10,7 +10,7 @@
     <AssemblyName>Carable.AssemblyPayments</AssemblyName>
     <RootNamespace>Carable.AssemblyPayments</RootNamespace>
 
-    <VersionPrefix>7.0.0</VersionPrefix>
+    <VersionPrefix>7.0.1</VersionPrefix>
     <VersionSuffix></VersionSuffix>
 
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
@@ -21,7 +21,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/carable/carable.assemblypayments</PackageProjectUrl>
     <RepositoryUrl>https://github.com/carable/carable.assemblypayments</RepositoryUrl>
-    <PackageReleaseNotes>Adding additional properties and changing API to be more type safe</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix for missing documentation in xml.</PackageReleaseNotes>
 
   </PropertyGroup>
 
