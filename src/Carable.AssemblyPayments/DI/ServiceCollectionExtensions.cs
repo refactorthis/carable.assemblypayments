@@ -32,6 +32,7 @@ namespace Microsoft.Extensions.DependencyInjection
             container.AddTransient<IItemRepository, ItemRepository>();
             container.AddTransient<ICallbackRepository, CallbackRepository>();
             container.AddTransient<IPayPalAccountRepository, PayPalAccountRepository>();
+            container.AddTransient<IWalletAccountRepository, WalletAccountRepository>();
             container.AddTransient<ITokenRepository, TokenRepository>();
             container.AddTransient<ITransactionRepository, TransactionRepository>();
             container.AddTransient<IUploadRepository, UploadRepository>();

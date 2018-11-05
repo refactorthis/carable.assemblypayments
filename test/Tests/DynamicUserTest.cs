@@ -336,6 +336,17 @@ namespace Carable.AssemblyPayments.Tests
         }
 
         [Fact]
+        public void ListUserWalletAccountsSuccessful()
+        {
+            var content = Files.ReadAllText("./Fixtures/user_wallet_accounts.json");
+            var client = GetMockClient(content);
+            var repo = Get<IUserRepository>(client.Object);
+
+            var items = repo.GetWalletAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
+            Assert.Equal("385b50bb-237a-42cb-9382-22953e191ae6", items.Id);
+        }
+
+        [Fact]
         public void GetUserCardAccountSuccessful()
         {
             var content = Files.ReadAllText("./Fixtures/user_card_accounts.json");
@@ -365,6 +376,16 @@ namespace Carable.AssemblyPayments.Tests
             var repo = Get<IUserRepository>(client.Object);
 
             Assert.Null(repo.GetBankAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639"));
+        }
+
+        [Fact]
+        public void GetUserWalletAccountEmpty()
+        {
+            var content = Files.ReadAllText("./Fixtures/user_wallet_accounts_empty.json");
+            var client = GetMockClient(content, (System.Net.HttpStatusCode)422);
+            var repo = Get<IUserRepository>(client.Object);
+
+            Assert.Null(repo.GetWalletAccountForUser("89592d8a-6cdb-4857-a90d-b41fc817d639"));
         }
 
         [Fact]

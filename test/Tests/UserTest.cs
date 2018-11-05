@@ -358,6 +358,16 @@ namespace Carable.AssemblyPayments.Tests
         }
 
         [Fact]
+        public void ListUserWalletAccountsEmpty()
+        {
+            var content = Files.ReadAllText("./Fixtures/user_wallet_accounts_empty.json");
+            var client = GetMockClient(content, (System.Net.HttpStatusCode)422);
+            var repo = Get<IUserRepository>(client.Object);
+
+            var items = repo.ListWalletAccountsForUser("89592d8a-6cdb-4857-a90d-b41fc817d639");
+        }
+
+        [Fact]
         public void ListUserCardAccountsEmpty()
         {
             var content = Files.ReadAllText("./Fixtures/user_card_accounts_empty.json");

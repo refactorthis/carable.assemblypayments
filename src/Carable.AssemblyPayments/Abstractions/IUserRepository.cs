@@ -69,6 +69,12 @@ namespace Carable.AssemblyPayments.Abstractions
         /// <returns></returns>
         Task<IEnumerable<BankAccount>> ListBankAccountsForUserAsync(string userId);
         /// <summary>
+        /// Show the User’s Wallet Account using a given :id.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Task<IEnumerable<WalletAccount>> ListWalletAccountsForUserAsync(string userId);
+        /// <summary>
         /// Set the User’s Disbursement Account using a given User :id and one of either a Bank Account :account_id or a PayPal Account :account_id
         /// </summary>
         /// <param name="userId"></param>
@@ -105,10 +111,12 @@ namespace Carable.AssemblyPayments.Abstractions
         
         public static IEnumerable<BankAccount> ListBankAccountsForUser(this IUserRepository repo, string userId)=>
             repo.ListBankAccountsForUserAsync(userId).WrapResult();
-        
+
+        public static IEnumerable<WalletAccount> ListWalletAccountsForUser(this IUserRepository repo, string userId) =>
+            repo.ListWalletAccountsForUserAsync(userId).WrapResult();
+
         public static DisbursementAccount SetDisbursementAccount(this IUserRepository repo, string userId, string accountId)=>
             repo.SetDisbursementAccountAsync(accountId: accountId, userId: userId).WrapResult();
-        
 
         public static BankAccount GetBankAccountForUser(this IUserRepository repo, string userId)=>
             repo.ListBankAccountsForUser(userId)?.FirstOrDefault();
@@ -118,6 +126,10 @@ namespace Carable.AssemblyPayments.Abstractions
         
         public static PayPalAccount GetPayPalAccountForUser(this IUserRepository repo, string userId)=>
             repo.ListPayPalAccountsForUser(userId)?.FirstOrDefault();
+
+        public static WalletAccount GetWalletAccountForUser(this IUserRepository repo, string userId) =>
+            repo.ListWalletAccountsForUser(userId)?.FirstOrDefault();
+
         /// <summary>
         /// Show the User’s Bank Account using a given :id.
         /// </summary>
@@ -140,6 +152,14 @@ namespace Carable.AssemblyPayments.Abstractions
         public static async Task<PayPalAccount> GetPayPalAccountForUserAsync(this IUserRepository repo, string userId)
         {
             var r = await repo.ListPayPalAccountsForUserAsync(userId);
+            return r?.FirstOrDefault();
+        }
+        /// <summary>
+        /// Show a User’s Wallet Account using a given :id.
+        /// </summary>
+        public static async Task<WalletAccount> GetWalletAccountForUserAsync(this IUserRepository repo, string userId)
+        {
+            var r = await repo.ListWalletAccountsForUserAsync(userId);
             return r?.FirstOrDefault();
         }
     }
