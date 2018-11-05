@@ -202,6 +202,41 @@ namespace Carable.AssemblyPayments.Implementations
             return new List<BankAccount>();
         }
 
+        public async Task<IEnumerable<WalletAccount>> ListWalletAccountsForUserAsync(string userId)
+        {
+            AssertIdNotNull(userId);
+            var request = new RestRequest("/users/{id}/wallet_accounts", Method.GET);
+            request.AddUrlSegment("id", userId);
+            RestResponse response;
+            try
+            {
+                response = await SendRequestAsync(Client, request);
+            }
+            catch (ApiErrorsException e)
+            {
+                if (e.Errors.Count == 1 && e.Errors.Values.First().First() == "no account found")
+                {
+                    return new List<WalletAccount>();
+                }
+                throw e;
+            }
+            var dict = JsonConvert.DeserializeObject<IDictionary<string, object>>(response.Content);
+            if (dict.ContainsKey("wallet_accounts"))
+            {
+                var itemCollection = dict["wallet_accounts"];
+                try
+                {
+                    return JsonConvert.DeserializeObject<List<WalletAccount>>(JsonConvert.SerializeObject(itemCollection));
+                }
+                catch (JsonSerializationException)
+                {
+                    return new[] { JsonConvert.DeserializeObject<WalletAccount>(JsonConvert.SerializeObject(itemCollection)) };
+                }
+            }
+
+            return new List<WalletAccount>();
+        }
+
         public async Task<DisbursementAccount> SetDisbursementAccountAsync(string userId, string accountId)
         {
             AssertIdNotNull(userId);
