@@ -18,7 +18,7 @@ namespace Carable.AssemblyPayments.Abstractions
         /// <param name="offset"></param>
         /// <param name="search"></param>
         /// <returns></returns>
-        Task<IEnumerable<User>> ListUsersAsync(int limit = 10, int offset = 0, string search=null);
+        Task<IEnumerable<User>> ListUsersAsync(int limit = 10, int offset = 0, string search = null);
         /// <summary>
         /// Show details of a specific User using a given id
         /// </summary>
@@ -81,50 +81,57 @@ namespace Carable.AssemblyPayments.Abstractions
         /// <param name="accountId"></param>
         /// <returns></returns>
         Task<DisbursementAccount> SetDisbursementAccountAsync(string userId, string accountId);
+        /// <summary>
+        /// Sets a user’s KYC state to approved on pre-live given the user :id
+        /// Ensure that a user has the required KYC information before using this call. Otherwise, the call will fail.
+        /// </summary>
+        /// <param name="userId">User ID</param>
+        /// <returns></returns>
+        Task<User> VerifyUserAsync(string userId);
     }
 
     public static class UserRepositoryExtensions
     {
-        public static IEnumerable<User> ListUsers(this IUserRepository repo, int limit = 10, int offset = 0)=>
+        public static IEnumerable<User> ListUsers(this IUserRepository repo, int limit = 10, int offset = 0) =>
             repo.ListUsersAsync(offset: offset, limit: limit).WrapResult();
-        
-        public static User GetUserById(this IUserRepository repo, string userId)=>
+
+        public static User GetUserById(this IUserRepository repo, string userId) =>
             repo.GetUserByIdAsync(userId).WrapResult();
-        
-        public static User CreateUser(this IUserRepository repo, User user)=>
+
+        public static User CreateUser(this IUserRepository repo, User user) =>
             repo.CreateUserAsync(user).WrapResult();
-        
-        public static User UpdateUser(this IUserRepository repo, User user)=>
+
+        public static User UpdateUser(this IUserRepository repo, User user) =>
             repo.UpdateUserAsync(user).WrapResult();
-        
-        public static bool DeleteUser(this IUserRepository repo, string userId)=>
+
+        public static bool DeleteUser(this IUserRepository repo, string userId) =>
             repo.DeleteUserAsync(userId).WrapResult();
-        
-        public static IEnumerable<Item> ListItemsForUser(this IUserRepository repo, string userId)=>
+
+        public static IEnumerable<Item> ListItemsForUser(this IUserRepository repo, string userId) =>
             repo.ListItemsForUserAsync(userId).WrapResult();
-        
-        public static IEnumerable<PayPalAccount> ListPayPalAccountsForUser(this IUserRepository repo, string userId)=>
+
+        public static IEnumerable<PayPalAccount> ListPayPalAccountsForUser(this IUserRepository repo, string userId) =>
             repo.ListPayPalAccountsForUserAsync(userId).WrapResult();
-        
-        public static IEnumerable<CardAccount> ListCardAccountsForUser(this IUserRepository repo, string userId)=>
+
+        public static IEnumerable<CardAccount> ListCardAccountsForUser(this IUserRepository repo, string userId) =>
             repo.ListCardAccountsForUserAsync(userId).WrapResult();
-        
-        public static IEnumerable<BankAccount> ListBankAccountsForUser(this IUserRepository repo, string userId)=>
+
+        public static IEnumerable<BankAccount> ListBankAccountsForUser(this IUserRepository repo, string userId) =>
             repo.ListBankAccountsForUserAsync(userId).WrapResult();
 
         public static IEnumerable<WalletAccount> ListWalletAccountsForUser(this IUserRepository repo, string userId) =>
             repo.ListWalletAccountsForUserAsync(userId).WrapResult();
 
-        public static DisbursementAccount SetDisbursementAccount(this IUserRepository repo, string userId, string accountId)=>
+        public static DisbursementAccount SetDisbursementAccount(this IUserRepository repo, string userId, string accountId) =>
             repo.SetDisbursementAccountAsync(accountId: accountId, userId: userId).WrapResult();
 
-        public static BankAccount GetBankAccountForUser(this IUserRepository repo, string userId)=>
+        public static BankAccount GetBankAccountForUser(this IUserRepository repo, string userId) =>
             repo.ListBankAccountsForUser(userId)?.FirstOrDefault();
-        
-        public static CardAccount GetCardAccountForUser(this IUserRepository repo, string userId)=>
+
+        public static CardAccount GetCardAccountForUser(this IUserRepository repo, string userId) =>
             repo.ListCardAccountsForUser(userId)?.FirstOrDefault();
-        
-        public static PayPalAccount GetPayPalAccountForUser(this IUserRepository repo, string userId)=>
+
+        public static PayPalAccount GetPayPalAccountForUser(this IUserRepository repo, string userId) =>
             repo.ListPayPalAccountsForUser(userId)?.FirstOrDefault();
 
         public static WalletAccount GetWalletAccountForUser(this IUserRepository repo, string userId) =>

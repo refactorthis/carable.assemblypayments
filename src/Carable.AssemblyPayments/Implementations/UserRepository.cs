@@ -64,9 +64,12 @@ namespace Carable.AssemblyPayments.Implementations
             request.AddParameter("city", user.City);
             request.AddParameter("zip", user.Zip);
             request.AddParameter("country", user.Country);
+            request.AddParameter("dob", user.Dob);
+            request.AddParameter("government_number", user.GovernmentNumber);
+            request.AddParameter("drivers_licence_number", user.DriversLicense);
 
             var response = await SendRequestAsync(Client, request);
-            return JsonConvert.DeserializeObject<IDictionary<string,User>>(response.Content).Values.First();
+            return JsonConvert.DeserializeObject<IDictionary<string, User>>(response.Content).Values.First();
         }
 
         public async Task<bool> DeleteUserAsync(string userId)
@@ -127,7 +130,7 @@ namespace Carable.AssemblyPayments.Implementations
                 {
                     return new[] { JsonConvert.DeserializeObject<PayPalAccount>(JsonConvert.SerializeObject(itemCollection)) };
                 }
-                
+
             }
             return new List<PayPalAccount>();
         }
@@ -162,7 +165,7 @@ namespace Carable.AssemblyPayments.Implementations
                 {
                     return new[] { JsonConvert.DeserializeObject<CardAccount>(JsonConvert.SerializeObject(itemCollection)) };
                 }
-            
+
             }
             return new List<CardAccount>();
         }
@@ -198,7 +201,7 @@ namespace Carable.AssemblyPayments.Implementations
                     return new[] { JsonConvert.DeserializeObject<BankAccount>(JsonConvert.SerializeObject(itemCollection)) };
                 }
             }
-            
+
             return new List<BankAccount>();
         }
 
@@ -271,6 +274,13 @@ namespace Carable.AssemblyPayments.Implementations
             var response = await SendRequestAsync(Client, request);
             return JsonConvert.DeserializeObject<IDictionary<string, User>>(response.Content).Values.First();
         }
+        public async Task<User> VerifyUserAsync(string userId)
+        {
+            var request = new RestRequest($"/users/{userId}?type=identity_verified", Method.PATCH);
+            var response = await SendRequestAsync(Client, request);
+            return JsonConvert.DeserializeObject<IDictionary<string, User>>(response.Content).Values.First();
+        }
+
         #endregion
 
         #region private methods
@@ -294,6 +304,8 @@ namespace Carable.AssemblyPayments.Implementations
                 throw new ValidationException("Field User.Email should contain correct email address!");
             }
         }
+
+
 
         #endregion
     }
