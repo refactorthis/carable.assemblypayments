@@ -35,7 +35,7 @@ namespace Carable.AssemblyPayments.Implementations
             AssertIdNotNull(walletAccountId);
             AssertIdNotNull(accountId);
             
-            var request = new RestRequest(ResourceUri + "{id}/withdrawal", Method.POST);
+            var request = new RestRequest(ResourceUri + "{id}/withdraw", Method.POST);
             request.AddUrlSegment("id", walletAccountId);
             request.AddParameter("account_id", accountId);
             request.AddParameter("amount", amount);
