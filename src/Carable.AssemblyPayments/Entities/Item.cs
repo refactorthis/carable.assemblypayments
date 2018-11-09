@@ -22,12 +22,21 @@ namespace Carable.AssemblyPayments.Entities
 
         [JsonProperty(PropertyName = "payment_type_id")]
         public PaymentType PaymentType { get; set; }
+
+        // The request and response models differ but are represented as one model,
+        // this is to ensure that serialization will set the payment_type field which is required for Item creation.
+        [JsonProperty(PropertyName = "payment_type")]
+        private PaymentType PaymentTypeId
+        {
+            get { return PaymentType; }
+        }
+
         /// <summary>
         /// The status of the item
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public ItemStatus Status { get; set; }
-        
+
         [JsonProperty(PropertyName = "net_amount")]
         public int? NetAmount { get; set; }
         [JsonProperty(PropertyName = "refunded_amount")]
@@ -86,7 +95,8 @@ namespace Carable.AssemblyPayments.Entities
         /// </summary>
         /// <value>The fee identifiers.</value>
         [JsonProperty(PropertyName = "fee_ids")]
-        public string FeeIds {
+        public string FeeIds
+        {
             get
             {
                 if (Fees == null || !Fees.Any())
